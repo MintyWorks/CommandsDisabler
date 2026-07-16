@@ -38,9 +38,3 @@ disabled-commands:
 
 Add or remove entries (no leading `/`), then run `/commandsdisabler reload` (aliases:
 `/cd reload`, `/cmdisabler reload`) as an op or console.
-
-## Permissions
-
-| Perms Commands                | Default | Effect
-| `commandsdisabler.bypass`     | op      | Allows using otherwise-disabled commands.
-| `commandsdisabler.admin`      | op      | Allows `/commandsdisabler reload`.
