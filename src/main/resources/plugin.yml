@@ -1,0 +1,21 @@
+name: CommandsDisabler
+version: '${project.version}'
+main: net.mintyyworks.commandsdisabler.CommandsDisabler
+api-version: '26.2'
+author: MintyyWorks
+description: Blocks configurable commands (e.g. /plugins, /help, /version) from being used by players without the bypass permission.
+
+commands:
+  commandsdisabler:
+    description: Manage the CommandsDisabler plugin.
+    usage: /<command> reload
+    aliases: [cd, cmdisabler]
+    permission: commandsdisabler.admin
+
+permissions:
+  commandsdisabler.bypass:
+    description: "Allows the player to use commands that are otherwise disabled (e.g. /help, /?, /plugins)."
+    default: op
+  commandsdisabler.admin:
+    description: "Allows the player to reload the CommandsDisabler configuration."
+    default: op

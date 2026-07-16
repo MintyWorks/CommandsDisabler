@@ -1,0 +1,40 @@
+# CommandsDisabler configuration.
+#
+# After changing this file, run "/commandsdisabler reload" in-game or from
+# console to apply the changes without restarting the server.
+
+# The message sent to a player when they try to use a disabled command.
+#
+# - deny-message: "" -> uses a vanilla-style message instead (see
+#                                   "vanilla-style" below), so the disabled command
+#                                   looks like it was never registered.
+# - deny-message: "your text" -> uses your custom message instead, and
+#                                   "vanilla-style" is ignored.
+#
+# "&" color codes are supported (e.g. &c = red, &e = yellow, &a = green).
+deny-message: "&cThat command is disabled on this server."
+
+# Only used when deny-message is "" above. Picks which vanilla-style message is shown:
+#
+# - "simple" -> "Unknown command. Type "/help" for help."
+#                 (the plain message vanilla shows for a command that doesn't exist)
+# - "detailed" -> the same first line, plus a second line that echoes back what the
+#                 player typed with a "<--[HERE]" marker, just like vanilla points at
+#                 command parse errors, e.g.:
+#                   Unknown command. Type "/help" for help.
+#                   /plugins<--[HERE]
+vanilla-style: "simple"
+
+# Commands that are blocked for anyone without the "commandsdisabler.bypass" permission.
+#
+# - Do NOT include the leading "/".
+# - Namespaced variants (e.g. "bukkit:help", "minecraft:help", "spigot:plugins") are
+#   blocked automatically - you only need to list the base command name here.
+disabled-commands:
+  - "?"
+  - "help"
+  - "pl"
+  - "about"
+  - "version"
+  - "ver"
+  - "plugins"
