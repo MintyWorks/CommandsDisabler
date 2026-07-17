@@ -5,6 +5,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
+import org.bukkit.event.player.PlayerCommandSendEvent;
 
 public final class CommandBlockListener implements Listener {
 
@@ -56,5 +57,19 @@ public final class CommandBlockListener implements Listener {
                 player.sendMessage(CommandsDisabler.color(vanilla_simple_mesg));
             }
         }
+    }
+
+    @EventHandler
+    public void onCommandSend(PlayerCommandSendEvent event) {
+        Player player = event.getPlayer();
+        if (player.hasPermission("commandsdisabler.bypass")) {
+            return;
+        }
+
+        event.getCommands().removeIf(command -> {
+            int namespaceIndex = command.indexOf(':');
+            String baseCommand = namespaceIndex >= 0 ? command.substring(namespaceIndex + 1) : command;
+            return plugin.isDisabled(baseCommand);
+        });
     }
 }
