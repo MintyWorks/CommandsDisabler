@@ -57,13 +57,20 @@ public final class CommandBlockListener implements Listener {
             if ("detailed".equals(plugin.getVanillaStyle())) {
                 player.sendMessage(CommandsDisabler.color(vanilla_detailed_mesg));
 
-                String withoutSlash = message.startsWith("/") ? message.substring(1) : message;
-                Component errorLine = Component.text(withoutSlash + "<--[HERE]")
+               String withoutSlash = message.startsWith("/") ? message.substring(1) : message;
+
+                Component commandPart = Component.text(withoutSlash)
                         .color(NamedTextColor.RED)
-                        .decorate(TextDecoration.UNDERLINED)
+                        .decoration(TextDecoration.UNDERLINED, true)
                         .clickEvent(ClickEvent.suggestCommand(message));
 
-                player.sendMessage(errorLine);
+                Component herePart = Component.text("<--[HERE]")
+                        .color(NamedTextColor.RED)
+                        .decoration(TextDecoration.UNDERLINED, false)
+                        .decoration(TextDecoration.ITALIC, true)
+                        .clickEvent(ClickEvent.suggestCommand(message));
+
+                player.sendMessage(commandPart.append(herePart));
             } else {
                 player.sendMessage(CommandsDisabler.color(vanilla_simple_mesg));
             }
