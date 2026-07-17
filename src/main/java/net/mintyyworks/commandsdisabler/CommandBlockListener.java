@@ -16,7 +16,7 @@ public final class CommandBlockListener implements Listener {
     private static final String vanilla_simple_mesg =
             "&cUnknown command. Type \"/help\" for help.";
 
-    private static final String vanilla_detailed_mesg = vanilla_simple_mesg;
+    private static final String vanilla_detailed_mesg = "&cUnknown or incomplete command. See below for error"; //vanilla_simple_mesg;
 
     private final CommandsDisabler plugin;
 
