@@ -6,6 +6,10 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 import org.bukkit.event.player.PlayerCommandSendEvent;
+import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.event.ClickEvent;
+import net.kyori.adventure.text.format.NamedTextColor;
+import net.kyori.adventure.text.format.TextDecoration;
 
 public final class CommandBlockListener implements Listener {
 
@@ -52,7 +56,14 @@ public final class CommandBlockListener implements Listener {
 
             if ("detailed".equals(plugin.getVanillaStyle())) {
                 player.sendMessage(CommandsDisabler.color(vanilla_detailed_mesg));
-                player.sendMessage(CommandsDisabler.color("&7" + message + "&c<--[HERE]"));
+
+                String withoutSlash = message.startsWith("/") ? message.substring(1) : message;
+                Component errorLine = Component.text(withoutSlash + "<--[HERE]")
+                        .color(NamedTextColor.RED)
+                        .decorate(TextDecoration.UNDERLINED)
+                        .clickEvent(ClickEvent.suggestCommand(message));
+
+                player.sendMessage(errorLine);
             } else {
                 player.sendMessage(CommandsDisabler.color(vanilla_simple_mesg));
             }
