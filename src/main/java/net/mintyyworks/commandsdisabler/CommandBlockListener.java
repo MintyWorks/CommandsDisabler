@@ -45,7 +45,7 @@ public final class CommandBlockListener implements Listener {
             return;
         }
 
-        if (plugin.isDisabled(baseCommand)) {
+        if (plugin.isDisabled(label, baseCommand)) {
             event.setCancelled(true);
 
             String denyMessage = plugin.getDenyMessage();
@@ -87,7 +87,7 @@ public final class CommandBlockListener implements Listener {
         event.getCommands().removeIf(command -> {
             int namespaceIndex = command.indexOf(':');
             String baseCommand = namespaceIndex >= 0 ? command.substring(namespaceIndex + 1) : command;
-            return plugin.isDisabled(baseCommand);
+            return plugin.isDisabled(command, baseCommand);
         });
     }
 }
