@@ -53,6 +53,11 @@ public final class CommandsDisabler extends JavaPlugin {
         return disabledCommands.contains(baseCommand.toLowerCase(Locale.ROOT));
     }
 
+    public boolean isDisabled(String fullLabel, String baseCommand) {
+        return disabledCommands.contains(fullLabel.toLowerCase(Locale.ROOT))
+                || disabledCommands.contains(baseCommand.toLowerCase(Locale.ROOT));
+    }
+
     public String getDenyMessage() {
         return denyMessage;
     }
