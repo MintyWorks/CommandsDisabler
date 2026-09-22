@@ -68,16 +68,10 @@
     </repositories>
 
     <dependencies>
-        <!--
-          Paper switched its versioning scheme to <mcVersion>.build.<build>-<status>
-          (e.g. 26.2.build.60-beta). The "[26.2.build,)" range lets Maven resolve the
-          latest published build for Minecraft/Paper 26.2. Pin to an exact version
-          such as 26.2.build.60-beta instead if you need a reproducible build.
-        -->
         <dependency>
             <groupId>io.papermc.paper</groupId>
             <artifactId>paper-api</artifactId>
-            <version>[26.2.build,)</version>
+            <version>[26.3.build,)</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
