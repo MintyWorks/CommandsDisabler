@@ -1,7 +1,7 @@
 name: CommandsDisabler
 version: '${project.version}'
 main: net.mintyyworks.commandsdisabler.CommandsDisabler
-api-version: '26.2'
+api-version: '26.3'
 author: MintyyWorks
 description: Blocks configurable commands (e.g. /plugins, /help, /version) from being used by players without the bypass permission.
 
